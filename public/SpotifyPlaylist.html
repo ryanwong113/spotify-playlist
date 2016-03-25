@@ -1,0 +1,67 @@
+
+<html ng-app="SpotifyPlaylist">
+
+	<head>
+		<meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+		<title>SpotifyPlaylist</title>
+	</head>
+
+	<body>
+		<h1>SpotifyPlaylist</h1>
+
+		<div ng-controller="PlaylistController as controller">
+			<button class="btn" ng-click="controller.login()">Login</button>
+		</div>
+
+		<div ng-controller="TrackController as controller">
+
+			<div class="well">
+				Currently selected tracks: 
+				<span class="label label-success" ng-repeat="selectedTrackId in controller.selectedTrackIds">
+					{{selectedTrackId}}
+				</span>
+			</div>
+
+			<p>
+				<label>Track Name 情人甲</label>
+	  		</p>
+		  	<p>
+		  		<form>
+			  		<input type="text" name="trackName" ng-model="controller.trackName" required />
+					<button class="btn btn-default btn-sm" ng-click="controller.getTrack(controller.trackName)">Get Track</button>
+				</form>
+			</p>
+
+			<table class="table table-responsive table-hover table-condensed">
+				<thead>
+					<tr>
+						<th>Track Name</th>
+						<th>Artist Name</th>
+						<th>Album Name</th>
+						<th>Album Image</th>
+					</tr>
+				</thead>
+				<tr ng-repeat="track in controller.tracks" ng-click="controller.saveTrack(track.trackId)">
+					<td>{{track.trackName}}</td>
+					<td>{{track.artistName}}</td>
+					<td>{{track.albumName}}</td>
+					<td><image src="{{track.albumImageUrl}}"></image></td>
+				</tr>
+			</table>
+	 	</div>
+
+	</body>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+  	<script type="text/javascript" src="js/SpotifyPlaylist.js"></script>
+  	<script type="text/javascript" src="js/angular-spotify.js"></script>
+	
+</html>
