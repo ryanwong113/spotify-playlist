@@ -1,4 +1,3 @@
-
 <html ng-app="SpotifyPlaylist">
 
 	<head>
@@ -14,14 +13,14 @@
 	<body>
 		<h1>SpotifyPlaylist</h1>
 
-		<div ng-controller="PlaylistController as controller">
+		<!-- <div ng-controller="PlaylistController as controller">
 			<button class="btn" ng-click="controller.login()">Login</button>
-		</div>
+		</div> -->
 
 		<div ng-controller="TrackController as controller">
 
 			<div class="well">
-				Currently selected tracks: 
+				Currently selected tracks:
 				<span class="label label-success" ng-repeat="selectedTrackId in controller.selectedTrackIds">
 					{{selectedTrackId}}
 				</span>
@@ -56,12 +55,12 @@
 	 	</div>
 
 	</body>
-	
+
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
-  	<script type="text/javascript" src="js/SpotifyPlaylist.js"></script>
-  	<script type="text/javascript" src="js/angular-spotify.js"></script>
-	
+	<script src="js/angular-spotify.js"></script>
+	<script src="js/SpotifyPlaylist.js"></script>
+
 </html>

@@ -32,7 +32,7 @@ angular.module('SpotifyPlaylist', ['spotify'])
           // Artist and album objects
           artist = track['artists'][0];
           album = track['album'];
-          
+
           // Album details
           albumId = album['id'];
           albumName = album['name'];
@@ -94,7 +94,7 @@ angular.module('SpotifyPlaylist', ['spotify'])
           albumId = album['id'];
           albumName = album['name'];
 
-          // Get the smallest album image 
+          // Get the smallest album image
           albumImages = album['images']
           albumImageUrl = albumImages[albumImages.length - 1]['url']
 
@@ -109,11 +109,3 @@ angular.module('SpotifyPlaylist', ['spotify'])
     };
 
   }]);
-
-// app.config(function (SpotifyProvider) {
-//   SpotifyProvider.setClientId('4858aa0aa01141a795854101a3aab0de');
-//   SpotifyProvider.setRedirectUri('../SpotifyPlaylist.html');
-//   SpotifyProvider.setScope('');
-//   // If you already have an auth token
-//   // SpotifyProvider.setAuthToken('zoasliu1248sdfuiknuha7882iu4rnuwehifskmkiuwhjg23');
-// });
