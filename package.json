@@ -1,5 +1,8 @@
 {
   "name": "SpotifyPlaylist",
+  "scripts": {
+    "start": "node server.js"
+  },
   "dependencies": {
     "angular-spotify": "^1.2.1",
     "body-parser": "^1.15.0",
