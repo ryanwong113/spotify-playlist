@@ -6,7 +6,7 @@ angular.module('SpotifyPlaylist', ['spotify'])
 
     self.login = function() {
       Spotify.login();
-    }
+    };
 
 
   }])
@@ -36,8 +36,8 @@ angular.module('SpotifyPlaylist', ['spotify'])
           // Album details
           albumId = album['id'];
           albumName = album['name'];
-          albumImages = album['images']
-          albumImageUrl = albumImages[albumImages.length - 1]['url'] // Get the smallest album image
+          albumImages = album['images'];
+          albumImageUrl = albumImages[albumImages.length - 1]['url']; // Get the smallest album image
 
           // Artist details
           artistId = artist['id'];
@@ -73,7 +73,7 @@ angular.module('SpotifyPlaylist', ['spotify'])
 
     self.getArtist = function(artistName) {
       Spotify.search(artistName, 'artist').then(function(data) {
-        console.log(data)
+        console.log(data);
       });
     };
 
@@ -95,8 +95,8 @@ angular.module('SpotifyPlaylist', ['spotify'])
           albumName = album['name'];
 
           // Get the smallest album image
-          albumImages = album['images']
-          albumImageUrl = albumImages[albumImages.length - 1]['url']
+          albumImages = album['images'];
+          albumImageUrl = albumImages[albumImages.length - 1]['url'];
 
           self.albums.push({
             'albumId' : albumId,

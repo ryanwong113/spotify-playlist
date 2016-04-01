@@ -6,4 +6,4 @@ app.get('/', function(req, res) {
     res.sendfile('SpotifyPlaylist.html', {root: __dirname + '/public' })
 });
 
-var server = app.listen(process.env.PORT || 80);
+var server = app.listen(process.env.PORT || process.argv[2] || 80);
