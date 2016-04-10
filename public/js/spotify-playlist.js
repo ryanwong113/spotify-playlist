@@ -86,8 +86,8 @@ angular.module('spotify-playlist', ['ngRoute', 'spotify', 'ui.bootstrap'])
                     // Album details
                     albumId = album['id'];
                     albumName = album['name'];
-                    albumImages = album['images']
-                    albumImageUrl = albumImages[albumImages.length - 1]['url'] // Get the smallest album image
+                    albumImages = album['images'];
+                    albumImageUrl = albumImages[albumImages.length - 1]['url']; // Get the smallest album image
 
                     // Artist details
                     artistId = artist['id'];
