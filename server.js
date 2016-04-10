@@ -1,9 +1,27 @@
-var express = require('express'),
-app = express();
+var http = require('http');
+var express = require('express');
 
-app.use(express.static(__dirname + '/public'));
-app.get('/', function(req, res) {
-    res.sendfile('SpotifyPlaylist.html', {root: __dirname + '/public' })
-});
+var app = express();
 
-var server = app.listen(process.env.PORT || 80);
+app.use(express.static('public'))
+    .get('/callback', function(req, res) {
+        res.status(200).set({'content-type' : 'text/html; charset=utf-8'})
+                       .sendfile('public/views/partials/callback.html');
+    })
+    .all('/*', function(req, res) {
+        res.status(200).set({'content-type' : 'text/html; charset=utf-8'})
+                       .sendfile('public/views/index.html');
+        })
+    .on('error', function(error) {
+        console.log('Error: ' + error.message);
+        console.log(error.stack);
+    });
+
+http.createServer(app)
+    .listen(8080)
+    .on('error', function(error) {
+        console.log('Error: ' + error.message);
+        console.log(error.stack);
+    });
+
+console.log('Serving app on port 8080');

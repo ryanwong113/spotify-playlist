@@ -1,0 +1,64 @@
+<div ng-controller='MainController as controller'>
+
+    <div>
+      <button class="btn btn-primary" ng-click="controller.login()">Login</button>
+    </div>
+
+    <div ng-show="controller.isLoggedIn">
+        <div>
+            <button class="btn btn-default btn-success" ng-click="controller.getUserDetails()">Get my info</button>
+            <div ng-show='controller.showUserDetails'>
+                User name: {{controller.userDetails.display_name}}
+                User Id: {{controller.userDetails.id}}
+                <image src="{{controller.userDetails.images[0].url}}"></image>
+            </div>
+        </div>
+
+        <p>
+            <div class="well">
+                <span class="label label-success" ng-repeat="userPlaylist in controller.userPlaylists">
+                    {{userPlaylist.name}}
+                </span>
+            </div>
+        </p>
+
+        <p>
+            <div class="well">
+                Currently selected tracks:
+                <span class="label label-success" ng-repeat="selectedTrack in controller.selectedTracks">
+                    {{selectedTrack.artistName}} - {{selectedTrack.trackName}}
+                </span>
+            </div>
+            <div>
+                <button class="btn btn-default btn-success" ng-click="">Save Tracks To Playlist</button>
+            </div>
+        </p>
+
+        <p>
+            <label>Track Name 情人甲</label>
+        </p>
+        <p>
+            <form>
+                <input type="text" name="trackName" ng-model="controller.trackName" required />
+                <button class="btn btn-default btn-sm" ng-click="controller.getTrack(controller.trackName)">Get Track</button>
+            </form>
+        </p>
+
+        <table class="table table-responsive table-hover table-condensed">
+            <thead>
+                <tr>
+                    <th>Track Name</th>
+                    <th>Artist Name</th>
+                    <th>Album Name</th>
+                    <th>Album Image</th>
+                </tr>
+            </thead>
+                <tr ng-repeat="track in controller.tracks" ng-click="controller.saveTrack(track)">
+                    <td>{{track.trackName}}</td>
+                    <td>{{track.artistName}}</td>
+                    <td>{{track.albumName}}</td>
+                    <td><image src="{{track.albumImageUrl}}"></image></td>
+                </tr>
+        </table>
+    </div>
+</div>
